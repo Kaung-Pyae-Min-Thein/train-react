@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { Counter } from "./components/Counter";
+import { Employee } from "./components/Employee";
+
+const employee = {
+  fname: "kaung",
+  lastname: "pyae",
+  age: "22"
+};
 
 function App() {
+  const count = useSelector(state => state.counter.count);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>The Counter is: {count} </h3>
+      <Counter />
     </div>
   );
 }
